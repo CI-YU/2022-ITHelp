@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "47fd9fb3-8250-4df8-94fc-369deaac3c3d": {
+      "ProjectGuid": "47fd9fb3-8250-4df8-94fc-369deaac3c3d",
+      "DisplayName": "AutoFacExample",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "其他檔案",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}
