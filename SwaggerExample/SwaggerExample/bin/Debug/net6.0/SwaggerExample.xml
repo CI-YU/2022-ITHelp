@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SwaggerExample</name>
+    </assembly>
+    <members>
+        <member name="M:SwaggerExample.Controllers.WeatherForecastController.GetSomething(System.Int32)">
+            <summary>
+            透過id取得相關資料
+            </summary>
+            <param name="id">流水號</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
