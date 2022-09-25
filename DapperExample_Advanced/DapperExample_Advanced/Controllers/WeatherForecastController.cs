@@ -34,11 +34,11 @@ namespace DapperExample_Advanced.Controllers {
     [HttpGet("ExcuteAsync")]
     public async Task<IActionResult> ExcuteAsync() {
       //建立SQLite連線
-      using var conn = new SqliteConnection("Data Source=Product.sqlite");
+      using var conn = new SqliteConnection("Data Source=Student.sqlite");
       var SQL = new StringBuilder();
       //初始化SQLite
       await InitSqliteAsync();
-      SQL.Append("INSERT INTO Product (Name, Age) VALUES (@Name, @Age);");
+      SQL.Append("INSERT INTO Student (Name, Age) VALUES (@Name, @Age);");
       DynamicParameters parameters = new();
       parameters.Add("Name", "BillHuang");
       parameters.Add("Age", 20);
@@ -52,12 +52,12 @@ namespace DapperExample_Advanced.Controllers {
     [HttpGet("QueryAsync")]
     public async Task<IActionResult> QueryAsync() {
       //建立SQLite連線
-      using var conn = new SqliteConnection("Data Source=Product.sqlite");
+      using var conn = new SqliteConnection("Data Source=Student.sqlite");
       var SQL = new StringBuilder();
       //初始化SQLite
       await InitSqliteAsync();
-      SQL.Append("select * from Product");
-      var Result = await conn.QueryAsync<Product>(SQL.ToString());
+      SQL.Append("select * from Student");
+      var Result = await conn.QueryAsync<Student>(SQL.ToString());
       return Ok(Result);
     }
     /// <summary>
@@ -67,12 +67,12 @@ namespace DapperExample_Advanced.Controllers {
     [HttpGet("QueryFirstOrDefaultAsync")]
     public async Task<IActionResult> QueryFirstOrDefaultAsync() {
       //建立SQLite連線
-      using var conn = new SqliteConnection("Data Source=Product.sqlite");
+      using var conn = new SqliteConnection("Data Source=Student.sqlite");
       var SQL = new StringBuilder();
       //初始化SQLite
       await InitSqliteAsync();
-      SQL.Append("select * from Product");
-      var Result = await conn.QueryFirstOrDefaultAsync<Product>(SQL.ToString());
+      SQL.Append("select * from Student");
+      var Result = await conn.QueryFirstOrDefaultAsync<Student>(SQL.ToString());
       if (Result is not null) {
         return Ok(Result);
       }
@@ -84,7 +84,7 @@ namespace DapperExample_Advanced.Controllers {
     /// <returns></returns>
     [HttpGet("TransactionsAsync")]
     public async Task<IActionResult> TransactionsAsync() {
-      using var conn = new SqliteConnection("Data Source=Product.sqlite");
+      using var conn = new SqliteConnection("Data Source=Student.sqlite");
       //開啟連線，前面沒有這行是因為在在執行語法時(Execute、Query)會自動檢查是否連接資料庫
       conn.Open();
       //開始資料庫交易
@@ -92,15 +92,15 @@ namespace DapperExample_Advanced.Controllers {
       var SQL = new StringBuilder();
       //初始化SQLite
       await InitSqliteAsync();
-      SQL.Append("INSERT INTO Product (Name, Age) VALUES (@Name, @Age);");
+      SQL.Append("INSERT INTO Student (Name, Age) VALUES (@Name, @Age);");
       DynamicParameters parameters = new();
       parameters.Add("Name", "BillHuang");
       parameters.Add("Age", 20);
       //執行完並不會真的異動資料
       await conn.ExecuteAsync(SQL.ToString(), parameters, trans);
       SQL.Clear();
-      SQL.Append("select * from Product");
-      var Result = await conn.QueryFirstOrDefaultAsync<Product>(SQL.ToString(), trans);
+      SQL.Append("select * from Student");
+      var Result = await conn.QueryFirstOrDefaultAsync<Student>(SQL.ToString(), trans);
       //當程式執行到Commit才是真的執行成功。
       trans.Commit();
       return Ok();
@@ -111,12 +111,12 @@ namespace DapperExample_Advanced.Controllers {
     /// <returns></returns>
     private static async Task InitSqliteAsync() {
       //建立SQLite連線
-      using var conn = new SqliteConnection("Data Source=Product.sqlite");
+      using var conn = new SqliteConnection("Data Source=Student.sqlite");
       var SQL = new StringBuilder();
-      //判斷是否有Product.sqlite檔案
-      if (!System.IO.File.Exists(@".\Product.sqlite")) {
+      //判斷是否有Student.sqlite檔案
+      if (!System.IO.File.Exists(@".\Student.sqlite")) {
         //新增一張表，就會建立.sqlite檔案
-        SQL.Append("CREATE TABLE Product( \n");
+        SQL.Append("CREATE TABLE Student( \n");
         SQL.Append("Id INTEGER PRIMARY KEY AUTOINCREMENT, \n");
         SQL.Append("Name VARCHAR(32) NOT NULL, \n");
         SQL.Append("Age INTEGER) \n");
@@ -126,10 +126,10 @@ namespace DapperExample_Advanced.Controllers {
       //Task不建議使用void，當不需要回傳值時會改用Task.CompletedTask說明已經完成，可以下一個步驟了。
       await Task.CompletedTask;
     }
-    public class Product {
+    public class Student {
       public int Id { get; set; }
       //Name預設值為Billhuang，與以前建構子的寫法一樣，如下方寫法
-      //public Product(){Name="BillHuang";}
+      //public Student(){Name="BillHuang";}
       public string Name { get; set; } = "BillHuang";
       public int Age { get; set; }
     }
