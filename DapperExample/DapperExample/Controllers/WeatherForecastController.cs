@@ -33,17 +33,17 @@ namespace DapperExample.Controllers {
     /// <returns></returns>
     [HttpGet("InsertAsync")]
     public async Task<IActionResult> InsertAsync() {
-      using var conn = new SqliteConnection("Data Source=Product.sqlite");
+      using var conn = new SqliteConnection("Data Source=Student.sqlite");
       var SQL = new StringBuilder();
-      if (!System.IO.File.Exists(@".\Product.sqlite")) {
-        SQL.Append("CREATE TABLE Product( \n");
+      if (!System.IO.File.Exists(@".\Student.sqlite")) {
+        SQL.Append("CREATE TABLE Student( \n");
         SQL.Append("Id INTEGER PRIMARY KEY AUTOINCREMENT, \n");
         SQL.Append("Name VARCHAR(32) NOT NULL, \n");
         SQL.Append("Age INTEGER) \n");
         await conn.ExecuteAsync(SQL.ToString());
         SQL.Clear();
       }
-      SQL.Append("INSERT INTO Product (Name, Age) VALUES (@Name, @Age);");
+      SQL.Append("INSERT INTO Student (Name, Age) VALUES (@Name, @Age);");
       DynamicParameters parameters = new();
       parameters.Add("Name", "BillHuang");
       parameters.Add("Age", 20);
@@ -51,19 +51,19 @@ namespace DapperExample.Controllers {
       return Ok(Result);
     }
     /// <summary>
-    /// 取得Product所有資料
+    /// 取得Student所有資料
     /// </summary>
     /// <returns></returns>
     [HttpGet("SelectAsync")]
     public async Task<IActionResult> SelectAsync() {
 
-      using var conn = new SqliteConnection("Data Source=Product.sqlite");
+      using var conn = new SqliteConnection("Data Source=Student.sqlite");
       var SQL = new StringBuilder();
-      SQL.Append("select * from Product");
-      var Result = await conn.QueryAsync<Product>(SQL.ToString());
+      SQL.Append("select * from Student");
+      var Result = await conn.QueryAsync<Student>(SQL.ToString());
       return Ok(Result);
     }
-    public class Product {
+    public class Student {
       public int Id { get; set; }
       public string Name { get; set; } = "BillHuang";
       public int Age { get; set; }
