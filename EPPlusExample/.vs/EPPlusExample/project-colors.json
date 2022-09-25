@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "0dad0e32-77ca-4f4f-bbe9-80111e2c08e2": {
+      "ProjectGuid": "0dad0e32-77ca-4f4f-bbe9-80111e2c08e2",
+      "DisplayName": "EPPlusExample",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "其他檔案",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}
