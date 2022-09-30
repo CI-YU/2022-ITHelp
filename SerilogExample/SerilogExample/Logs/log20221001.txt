@@ -1,0 +1,8 @@
+2022-10-01 02:10:31.745 +08:00 [INF] Starting web host
+2022-10-01 02:10:32.482 +08:00 [INF] Now listening on: https://localhost:7121
+2022-10-01 02:10:32.485 +08:00 [INF] Now listening on: http://localhost:5121
+2022-10-01 02:10:32.488 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-01 02:10:32.489 +08:00 [INF] Hosting environment: Development
+2022-10-01 02:10:32.489 +08:00 [INF] Content root path: E:\Side-Project\鐵人賽\SerilogExample\SerilogExample\
+2022-10-01 02:10:36.823 +08:00 [INF] This is Controller
+2022-10-01 02:10:36.825 +08:00 [ERR] Test Error
