@@ -566,11 +566,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Side-Project\\鐵人賽\\NLogExample\\NLogExample\\NLogExample.csproj",
+      "projectUniqueName": "E:\\鐵人賽\\鐵人賽發表文章範例\\NLogExample\\NLogExample\\NLogExample.csproj",
       "projectName": "NLogExample",
-      "projectPath": "D:\\Side-Project\\鐵人賽\\NLogExample\\NLogExample\\NLogExample.csproj",
+      "projectPath": "E:\\鐵人賽\\鐵人賽發表文章範例\\NLogExample\\NLogExample\\NLogExample.csproj",
       "packagesPath": "C:\\Users\\CI-YU\\.nuget\\packages\\",
-      "outputPath": "D:\\Side-Project\\鐵人賽\\NLogExample\\NLogExample\\obj\\",
+      "outputPath": "E:\\鐵人賽\\鐵人賽發表文章範例\\NLogExample\\NLogExample\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -635,7 +635,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

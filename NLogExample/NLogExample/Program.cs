@@ -1,13 +1,13 @@
 using NLog;
 using NLog.Web;
-var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
-logger.Debug("init main");
+var logger = LogManager.Setup().GetCurrentClassLogger();
 try {
+logger.Debug("init main");
   var builder = WebApplication.CreateBuilder(args);
 
   // Add services to the container.
   builder.Logging.ClearProviders();
-  builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+  builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Information);
   builder.Host.UseNLog();
   builder.Services.AddControllers();
   // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
